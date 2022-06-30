@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+
+
+runApp(MaterialApp(home: Text('heelo')));
+
+  //runApp(const MyApp());
+  
 }
+
+
+
+
+
+
+
+
+
+/*
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -93,7 +108,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 
 
-
+*/
 
 
 
