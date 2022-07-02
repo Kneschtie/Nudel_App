@@ -13,12 +13,12 @@ void main(){
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Flutter BottomNavigationBar Demo';
+  static const String _title = 'NudelApp';
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: _title,
+      
       home: MyStatefulWidget(),
     );
   }
@@ -35,14 +35,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 1;
   final List<Widget> _pages = <Widget>[
     Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Text("Settings"),
-          Icon(Icons.settings),
-        ],
+      child: Container(
+        
+        //mainAxisAlignment: MainAxisAlignment.center,
+        //
+        //children: const [
+        //  Text("Recent"),
+        //  Icon(Icons.recent_actors),
+        //],
+        margin: const EdgeInsets.all(10.0),
+        color: Colors.amber[600],
+        width: 48.0,
+        height: 48.0,
+
+        
       ),
+      
     ),
+
+
     Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
