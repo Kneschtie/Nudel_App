@@ -57,7 +57,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           Text("Messages"),
-          Icon(Icons.message),
+          Icon(Icons.ramen_dining),
         ],
       ),
     ),
