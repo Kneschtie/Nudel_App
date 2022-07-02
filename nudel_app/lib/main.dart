@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+//
+//void main() {
+//
+//
+//runApp(
+//  MaterialApp(
+//   home: Scaffold(
+//    appBar: AppBar
+//   (
+//   title: Text("helo"), 
+//   ),
+//   ) ,
+//      ),
+//    );
+//
+//  //runApp(const MyApp());
+//  
+//}
 
-void main() {
-
-
-runApp(MaterialApp(home: Text('heelo')));
-
-  //runApp(const MyApp());
-  
-}
 
 
 
@@ -17,7 +27,10 @@ runApp(MaterialApp(home: Text('heelo')));
 
 
 
-/*
+
+
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -31,6 +44,7 @@ static const String _title = 'Nudel App';
 
 
   @override
+  
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: _title,
@@ -108,7 +122,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 
 
-*/
 
 
 
