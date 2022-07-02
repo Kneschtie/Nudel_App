@@ -1,51 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
-void main() {
 
 
-//runApp(
-//MaterialApp(
-// home: Scaffold(
-//  appBar: AppBar
-// (
-// title: Text("helo"), 
-// ),
-// ) ,
-//    ),
-//  );
-//
-  
-  
-  
-  
-runApp(const MyApp());
-  
+
+
+
+void main(){
+  runApp(MyApp());
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-
-
-static const String _title = 'Nudel App';
-
-
-
-
+  static const String _title = 'Flutter BottomNavigationBar Demo';
 
   @override
   Widget build(BuildContext context) {
@@ -63,26 +31,197 @@ class MyStatefulWidget extends StatefulWidget {
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
 }
 
-
-
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Übersicht über die letzten gekochten Nudeln',
-      style: optionStyle,
+  int _selectedIndex = 1;
+  final List<Widget> _pages = <Widget>[
+    Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Text("Settings"),
+          Icon(Icons.settings),
+        ],
+      ),
     ),
-    Text(
-      'Übersicht der Verschiedenen Sorten',
-      style: optionStyle,
+    Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Text("Home"),
+          Icon(Icons.home),
+        ],
+      ),
     ),
-    Text(
-      'Eigene Einstellungen',
-      style: optionStyle,
+    Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Text("Messages"),
+          Icon(Icons.message),
+        ],
+      ),
     ),
   ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('BottomNavigationBar Sample'),
+      ),
+      body: Center(
+        child: _pages.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: 'Messages',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//void main() {
+//
+//
+//runApp(
+//MaterialApp(
+//  
+// home: Scaffold(
+//    backgroundColor: Colors.deepOrangeAccent,
+//
+//  appBar: AppBar
+// (
+//  
+//  centerTitle: true,  
+//  title: Text("Nudel Timer"), 
+//  backgroundColor: Colors.blueGrey[900],
+// 
+// ),
+// body: 
+// Image(
+//  image: NetworkImage('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg') ,
+//  )
+// 
+// ) ,
+//    ),
+//  );
+
+  
+  
+
+ 
+//runApp(const MyApp());
+  
+
+
+
+
+
+
+/*
+
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+
+
+static const String _title = 'Nudel-Timer';
+
+
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: _title,
+      home: MyStatefulWidget(),
+      
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+
+
+ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+   
+   static const TextStyle optionStyle =
+       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+   int _selectedIndex = 0;
+  
+   static const List<Widget> _widgetOptions = <Widget>[
+     (
+       Text(
+       'Übersicht über die letzten gekochten Nudeln',
+       style: optionStyle,
+      )
+ 
+     ),
+     Text(
+       'Übersicht der Verschiedenen Sorten',
+       style: optionStyle,
+     ),
+     Text(
+       'Eigene Einstellungen',
+       style: optionStyle,
+     ),
+   ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -116,8 +255,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color.fromARGB(255, 255, 183, 0),
         onTap: _onItemTapped,
+        
       ),
     );
   }
@@ -129,7 +269,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 
 
-
+*/
 
 
 
