@@ -1,5 +1,104 @@
+
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const NudelApp());
+}
+
+class NudelApp extends StatelessWidget {
+  const NudelApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: const TabBar(
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.home)),
+                Tab(icon: Icon(Icons.ramen_dining)),
+                Tab(icon: Icon(Icons.settings)),
+              ],
+            ),
+            centerTitle: true,
+            title: const Text('Nudel Timer'),
+            backgroundColor: Colors.orange,
+          ),
+          body: const TabBarView(
+            
+            children:  [
+              Icon(Icons.home),
+              Icon(Icons.ramen_dining),
+              Icon(Icons.settings),
+            ],
+          ),
+         
+          floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          tooltip: 'add Noodles',
+          child: Icon(Icons.add),
+          backgroundColor: Colors.orange,
+),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+
 
 
 
@@ -9,6 +108,19 @@ import 'package:flutter/scheduler.dart';
 void main(){
   runApp(MyApp());
 }
+
+
+
+class Timingtimer extends StatelessWidget{
+Widget.build(BuildContext context)
+
+}
+
+
+
+
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -35,7 +147,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 1;
   final List<Widget> _pages = <Widget>[
     Center(
-      child: Container(
+      
+      child: Column(
         
         //mainAxisAlignment: MainAxisAlignment.center,
         //
@@ -175,7 +288,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 
 
-
+*/
 
 /*
 
