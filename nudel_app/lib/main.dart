@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:nudel_app/page/addnoodle.dart';
 import 'package:nudel_app/page/einstellungen.dart';
 import 'package:nudel_app/page/nudeluebersich.dart';
 import 'package:nudel_app/page/zuletztgekocht.dart';
@@ -40,7 +41,7 @@ class NudelApp extends StatelessWidget {
           ),
          
           floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {MaterialPageRoute(builder: (context) => addnoodles());},
           tooltip: 'add Noodles',
           child: Icon(Icons.add),
           backgroundColor: Colors.orange,
