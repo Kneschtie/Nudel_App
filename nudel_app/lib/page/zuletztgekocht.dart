@@ -6,7 +6,7 @@ class page1 extends StatelessWidget{
   @override
   Widget build(BuildContext context) => Scaffold(
     body:Container(
-      color: Colors.teal,
+      color: Colors.red,
       child:Center      
       (
         child: Text ('Content 1',
