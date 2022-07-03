@@ -4,25 +4,67 @@ import 'package:nudel_app/main.dart';
 class addnoodles extends StatelessWidget{
   
    @override
-   Widget build(BuildContext context) => Scaffold(
+//   Widget build(BuildContext context) => Scaffold(
+//
+//      appBar: AppBar(
+//        backgroundColor: Colors.orange,
+//        leading: Builder(
+//         builder: (BuildContext context) {
+//         return IconButton(
+//          icon: const Icon(Icons.menu),
+//        onPressed: () {
+//        MaterialPageRoute(builder: (context) => const NudelApp());
+//        }
+//      );
+//    },
+//  ),
+//
+//    )
+//   );
 
-      appBar: AppBar(
+    
+
+
+
+
+Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        
+          appBar: AppBar(
         backgroundColor: Colors.orange,
         leading: Builder(
          builder: (BuildContext context) {
          return IconButton(
-          icon: const Icon(Icons.menu),
+          icon: const Icon(Icons.arrow_back),
         onPressed: () {
-        MaterialPageRoute(builder: (context) => const NudelApp());
+        runApp(NudelApp());
         }
       );
     },
   ),
 
-    )
-   );
-} 
-    
+          )
+        )
+      
+    );
+        
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    // body:Container(
    //   color: Colors.teal,

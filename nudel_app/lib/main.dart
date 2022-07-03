@@ -41,7 +41,9 @@ class NudelApp extends StatelessWidget {
           ),
          
           floatingActionButton: FloatingActionButton(
-          onPressed: () {MaterialPageRoute(builder: (context) => addnoodles());},
+          onPressed: () {
+            runApp(addnoodles());
+          },
           tooltip: 'add Noodles',
           child: Icon(Icons.add),
           backgroundColor: Colors.orange,
