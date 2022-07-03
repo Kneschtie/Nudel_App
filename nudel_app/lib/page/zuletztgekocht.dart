@@ -19,8 +19,10 @@ class _page1State extends State<page1> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Letzte Gekochte Nudeln'),
-          NudelWidget("xyz"),
-          NudelWidget('asdf'),
+          NudelWidget("Spaghetti", "images/spaghetti (1)_Zeichenfläche 1.png"),
+          Text('Letzte Gekochte Nudeln'),
+          NudelWidget("andere Nudeln", "images/andereNudeln.png"),
+          //NudelWidget('asdf'),
         ],
 
         

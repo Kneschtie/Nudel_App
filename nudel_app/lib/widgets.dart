@@ -33,15 +33,31 @@ Widget customAppBAr (String title) {
   }
 
 
-Widget NudelWidget(String xyz){
+Widget NudelWidget(String xyz, String internetadress){
   return Container(
-    height: 60,
-    width: 150,
+    
+    height:100,
+    width: 250,
+    //color: Colors.green,
     child: Card(
-      child: Padding(padding: const EdgeInsets.all(10.0),
-      child: Text(xyz)
+    color: Color.fromARGB(255, 245, 245, 138),
+    
+      
+      
+    child: Row(children: [
+        Image.asset(internetadress),
+        Text(xyz),
+        
+      ]
+      
+       
       ),
-      ),
+       ),
+      
+      
+      
+      
+      
       );
       
 }

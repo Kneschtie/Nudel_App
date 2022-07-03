@@ -48,8 +48,11 @@ class _NudelAppState extends State<NudelApp> {
             ),
 
           
-          body: TabBarView(            
+          body: 
+          TabBarView(
+                      
             children:  [
+              
             page1(),
             page2(),
              page3(),
