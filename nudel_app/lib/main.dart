@@ -5,6 +5,9 @@ import 'package:nudel_app/page/addnoodle.dart';
 import 'package:nudel_app/page/einstellungen.dart';
 import 'package:nudel_app/page/nudeluebersich.dart';
 import 'package:nudel_app/page/zuletztgekocht.dart';
+import 'package:nudel_app/widgets.dart';
+
+
 
 void main() {
   runApp(const NudelApp());
@@ -18,7 +21,9 @@ class NudelApp extends StatefulWidget {
 }
 
 class _NudelAppState extends State<NudelApp> {
-  @override
+ 
+          
+            @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
@@ -33,16 +38,15 @@ class _NudelAppState extends State<NudelApp> {
                 Tab(icon: Icon(Icons.settings)),
               ],
             ),
+            
             centerTitle: true,
 
           title: Text("Nudel App"),
             backgroundColor: Colors.orange,
-            ),
-            
-//
 
             
-            
+            ),
+
           
           body: TabBarView(            
             children:  [
@@ -54,19 +58,42 @@ class _NudelAppState extends State<NudelApp> {
          
           floatingActionButton: FloatingActionButton(
           onPressed: () {
-            runApp(addnoodles());
+            runApp(Addnoodles());
           },
-          tooltip: 'add Noodles',
+          tooltip: 'Füge Nudeln hinzu',
           child: Icon(Icons.add),
           backgroundColor: Colors.orange,
 ),
         ),
-      ),
+      
+      )
     );
   }
 }
 
-
+//@override
+//  Widget build(BuildContext context) {
+//    return MaterialApp(
+//      home: DefaultTabController(
+//        length: 3,
+//        child: Scaffold(
+//          appBar: AppBar(
+//            bottom: const TabBar(
+//              tabs: [
+//                Tab(
+//                  icon: Icon(Icons.home)),
+//                Tab(icon: Icon(Icons.ramen_dining)),
+//                Tab(icon: Icon(Icons.settings)),
+//              ],
+//            ),
+//            
+//            centerTitle: true,
+//
+//          title: Text("Nudel App"),
+//            backgroundColor: Colors.orange,
+//
+            
+          
 
 
 

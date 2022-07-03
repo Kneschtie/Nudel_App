@@ -1,40 +1,34 @@
+
 import 'package:flutter/material.dart';
 import 'package:nudel_app/main.dart';
 
-class addnoodles extends StatefulWidget{
-  
+class Addnoodles extends StatefulWidget{
   @override
-  State<addnoodles> createState() => _addnoodlesState();
+  State<Addnoodles> createState() => _AddnoodlesState();
 }
 
-class _addnoodlesState extends State<addnoodles> {
+class _AddnoodlesState extends State<Addnoodles> {
    @override
+   Widget build(BuildContext context) => Scaffold(
 
-    
-Widget build(BuildContext context) {
-    return Scaffold(
-      
-        
-          appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.orange,
         leading: Builder(
          builder: (BuildContext context) {
          return IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.menu),
         onPressed: () {
-        runApp(NudelApp());
+        MaterialPageRoute(builder: (context) => const NudelApp());
         }
       );
     },
   ),
 
-        )
-        
-      
-    );
-        
-}
-}
+    )
+   );
+} 
+
+
 
 
 
