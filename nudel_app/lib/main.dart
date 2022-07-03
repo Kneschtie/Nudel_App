@@ -1,6 +1,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:nudel_app/page/einstellungen.dart';
+import 'package:nudel_app/page/nudeluebersich.dart';
+import 'package:nudel_app/page/zuletztgekocht.dart';
 
 void main() {
   runApp(const NudelApp());
@@ -28,12 +31,11 @@ class NudelApp extends StatelessWidget {
             title: const Text('Nudel Timer'),
             backgroundColor: Colors.orange,
           ),
-          body: const TabBarView(
-            
+          body: TabBarView(            
             children:  [
-              Icon(Icons.home),
-              Icon(Icons.ramen_dining),
-              Icon(Icons.settings),
+            page1(),
+            page2(),
+             page3(),
             ],
           ),
          
