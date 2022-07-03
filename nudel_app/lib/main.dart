@@ -10,9 +10,14 @@ void main() {
   runApp(const NudelApp());
 }
 
-class NudelApp extends StatelessWidget {
+class NudelApp extends StatefulWidget {
   const NudelApp({super.key});
 
+  @override
+  State<NudelApp> createState() => _NudelAppState();
+}
+
+class _NudelAppState extends State<NudelApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,9 +34,16 @@ class NudelApp extends StatelessWidget {
               ],
             ),
             centerTitle: true,
-            title: const Text('Nudel Timer'),
+
+          title: Text("Nudel App"),
             backgroundColor: Colors.orange,
-          ),
+            ),
+            
+//
+
+            
+            
+          
           body: TabBarView(            
             children:  [
             page1(),

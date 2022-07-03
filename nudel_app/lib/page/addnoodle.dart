@@ -1,9 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:nudel_app/main.dart';
 
-class addnoodles extends StatelessWidget{
+class addnoodles extends StatefulWidget{
   
+  @override
+  State<addnoodles> createState() => _addnoodlesState();
+}
+
+class _addnoodlesState extends State<addnoodles> {
    @override
+
+    
+Widget build(BuildContext context) {
+    return Scaffold(
+      
+        
+          appBar: AppBar(
+        backgroundColor: Colors.orange,
+        leading: Builder(
+         builder: (BuildContext context) {
+         return IconButton(
+          icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+        runApp(NudelApp());
+        }
+      );
+    },
+  ),
+
+          
+          
+          
+        )
+        
+      
+    );
+        
+}
+}
+
+
+
+
+
+
+
+
+
+
 //   Widget build(BuildContext context) => Scaffold(
 //
 //      appBar: AppBar(
@@ -21,46 +65,6 @@ class addnoodles extends StatelessWidget{
 //
 //    )
 //   );
-
-    
-
-
-
-
-Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        
-          appBar: AppBar(
-        backgroundColor: Colors.orange,
-        leading: Builder(
-         builder: (BuildContext context) {
-         return IconButton(
-          icon: const Icon(Icons.arrow_back),
-        onPressed: () {
-        runApp(NudelApp());
-        }
-      );
-    },
-  ),
-
-          )
-        )
-      
-    );
-        
-}
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
