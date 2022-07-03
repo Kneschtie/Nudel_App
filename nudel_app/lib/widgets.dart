@@ -31,3 +31,17 @@ Widget customAppBAr (String title) {
             );
           
   }
+
+
+Widget NudelWidget(String xyz){
+  return Container(
+    height: 60,
+    width: 150,
+    child: Card(
+      child: Padding(padding: const EdgeInsets.all(10.0),
+      child: Text(xyz)
+      ),
+      ),
+      );
+      
+}

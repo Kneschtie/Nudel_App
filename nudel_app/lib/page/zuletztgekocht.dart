@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:nudel_app/widgets.dart';
 
 class page1 extends StatefulWidget{
   @override
@@ -15,6 +16,14 @@ class _page1State extends State<page1> {
       color: Colors.white,
       child:Column      
       (
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Letzte Gekochte Nudeln'),
+          NudelWidget("xyz"),
+          NudelWidget('asdf'),
+        ],
+
+        
         
 
        
