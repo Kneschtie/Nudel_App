@@ -26,7 +26,7 @@ class _page1State extends State<page1> {
           Spacer(flex: 1,),
           Text('Letzte Gekochte Nudeln',
           style: ueberschriftstyle(),
-            textAlign: TextAlign.center,
+          textAlign: TextAlign.center,
           ),
           Spacer(),
           NudelWidget("Spaghetti", "images/spaghetti (1)_Zeichenfläche 1.png"),
