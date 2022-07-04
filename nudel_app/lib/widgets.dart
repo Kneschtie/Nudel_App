@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nudel_app/page/addnoodle.dart';
 
 
 Widget customAppBAr (String title) { 
@@ -34,19 +35,27 @@ Widget customAppBAr (String title) {
 
 
 Widget NudelWidget(String xyz, String internetadress){
-  return Container(
+  return InkWell(
+    onTap: (){ runApp(Addnoodles());
+    },
+    child: Container(
     
     height:100,
     width: 400,
     
     //color: Colors.green,
     child: Card(
+      
+      
       shape: RoundedRectangleBorder(
+      
         borderRadius: BorderRadius.all(Radius.circular(20))),
         elevation: 3,
     color: Color.fromARGB(255, 245, 245, 138),
       child: Padding(padding: const EdgeInsets.all(5),   
     child: Center(
+      
+      
           child: Row(children: [
         Image.asset(internetadress,),
         Spacer(),
@@ -62,6 +71,8 @@ Widget NudelWidget(String xyz, String internetadress){
        ),
        ),
     ),
+    ),
+
       );
       
 }
