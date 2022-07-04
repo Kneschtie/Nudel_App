@@ -26,7 +26,11 @@ class _NudelAppState extends State<NudelApp> {
             @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DefaultTabController(
+
+      home:
+      
+      
+      DefaultTabController(
         length: 3,
         child: Scaffold(
           appBar: AppBar(
@@ -41,15 +45,21 @@ class _NudelAppState extends State<NudelApp> {
             
             centerTitle: true,
 
-          title: Text("Nudel App"),
-            backgroundColor: Colors.orange,
+          title: Text("Nudel App",
+          style: TextStyle(fontSize: 26,
+          fontWeight: FontWeight.bold),
 
+
+          ),
+            backgroundColor: Colors.orange,
+          
+          
             
             ),
 
           
-          body: 
-          TabBarView(
+          body: Center(
+            child: TabBarView(
                       
             children:  [
               
@@ -57,8 +67,9 @@ class _NudelAppState extends State<NudelApp> {
             page2(),
              page3(),
             ],
+            
           ),
-         
+        ),
           floatingActionButton: FloatingActionButton(
           onPressed: () {
             runApp(Addnoodles());
@@ -68,8 +79,9 @@ class _NudelAppState extends State<NudelApp> {
           backgroundColor: Colors.orange,
 ),
         ),
+        ),
       
-      )
+      
     );
   }
 }

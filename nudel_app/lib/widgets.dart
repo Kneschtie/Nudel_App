@@ -37,27 +37,31 @@ Widget NudelWidget(String xyz, String internetadress){
   return Container(
     
     height:100,
-    width: 250,
+    width: 400,
+    
     //color: Colors.green,
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(20))),
+        elevation: 3,
     color: Color.fromARGB(255, 245, 245, 138),
-    
-      
-      
-    child: Row(children: [
-        Image.asset(internetadress),
-        Text(xyz),
+      child: Padding(padding: const EdgeInsets.all(5),   
+    child: Center(
+          child: Row(children: [
+        Image.asset(internetadress,),
+        Spacer(),
+        Text(xyz,
         
-      ]
-      
-       
-      ),
+        style: TextStyle(color: Colors.black, fontSize: 18, ),
+        
+        ),
+        
+        
+      ],
+          ),
        ),
-      
-      
-      
-      
-      
+       ),
+    ),
       );
       
 }

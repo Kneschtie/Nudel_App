@@ -12,26 +12,31 @@ class _page1State extends State<page1> {
   @override
   Widget build(BuildContext context){
   return Scaffold(
-    body:Container(
-      color: Colors.white,
-      child:Column      
-      (
+
+    //backgroundColor: Colors.green,
+    body: Center(child: 
+    Container(
+      margin: new EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      //color: Color.fromARGB(255, 205, 180, 180),
+      child:Column(
+        
         mainAxisAlignment: MainAxisAlignment.center,
+        
         children: [
-          Text('Letzte Gekochte Nudeln'),
+          Spacer(flex: 1,),
+          Text('Letzte Gekochte Nudeln',
+          style: ueberschriftstyle(),
+            textAlign: TextAlign.center,
+          ),
+          Spacer(),
           NudelWidget("Spaghetti", "images/spaghetti (1)_Zeichenfläche 1.png"),
           
           NudelWidget("andere Nudeln", "images/andereNudeln.png"),
+          NudelWidget("andere Nudeln", "images/andereNudeln.png"),
+          NudelWidget("andere Nudeln", "images/andereNudeln.png"),
           //NudelWidget('asdf'),
+          Spacer(),
         ],
-
-        
-        
-
-       
-
-
-
 
       // child: Text ('Content 1',
       // style: TextStyle(
@@ -40,8 +45,15 @@ class _page1State extends State<page1> {
       // )
         )
         )
+    ),
         );
 
   
   }
+}
+TextStyle ueberschriftstyle(){
+  return TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.bold);
 }
