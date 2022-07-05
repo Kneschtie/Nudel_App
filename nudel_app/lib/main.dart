@@ -13,6 +13,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 
 
+
 void main() async{
   
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +24,7 @@ void main() async{
   while((box.get('Nudel  $x')!=null )|| (box.get('Nudel $y+1)') != null)){ //Falls mal eine Nudel herausgelöscht wurde
     x++;
     y = x +1;
+
 
   }
 
@@ -45,6 +47,16 @@ class NudelApp extends StatefulWidget {
 
   @override
   State<NudelApp> createState() => _NudelAppState();
+}
+
+class Nudelmanager{
+
+
+  String NudelanPlatz(int z){
+    return ("test");
+  }
+
+  
 }
 
 class _NudelAppState extends State<NudelApp> {
