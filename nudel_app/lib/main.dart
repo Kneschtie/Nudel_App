@@ -6,10 +6,15 @@ import 'package:nudel_app/page/einstellungen.dart';
 import 'package:nudel_app/page/nudeluebersich.dart';
 import 'package:nudel_app/page/zuletztgekocht.dart';
 import 'package:nudel_app/widgets.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 
 
 void main() {
+
+
+
+  
   runApp(const NudelApp());
 }
 
