@@ -31,9 +31,9 @@ class _page1State extends State<page1> {
           Spacer(),
           NudelWidget("Spaghetti", "images/spaghetti (1)_Zeichenfläche 1.png"),
           
-          NudelWidget("andere Nudeln", "images/andereNudeln.png"),
-          NudelWidget("andere Nudeln", "images/andereNudeln.png"),
-          NudelWidget("andere Nudeln", "images/andereNudeln.png"),
+          NudelWidget("andere Nudel", "images/andereNudeln.png"),
+          NudelWidget("andere Nudel", "images/andereNudeln.png"),
+          NudelWidget("andere Nudel", "images/andereNudeln.png"),
           //NudelWidget('asdf'),
           Spacer(),
         ],
