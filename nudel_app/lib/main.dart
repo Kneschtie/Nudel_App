@@ -14,7 +14,7 @@ void main() {
 
 
 
-  
+
   runApp(const NudelApp());
 }
 
@@ -53,6 +53,7 @@ class _NudelAppState extends State<NudelApp> {
           title: Text("Nudel App",
           style: TextStyle(fontSize: 26,
           fontWeight: FontWeight.bold),
+
 
 
           ),
