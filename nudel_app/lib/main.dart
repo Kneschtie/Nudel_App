@@ -18,9 +18,14 @@ void main() async{
   
   WidgetsFlutterBinding.ensureInitialized();
   int x = 0;
+  int test = 1;
   int y = 0;
   await Hive.initFlutter();
   var box = await Hive.openBox('NudelSpeicher');
+  print(box.get('Nudel $test'));
+  box.put('Nudel $test', 'hallo');
+  print(box.get('Nudel 1'));
+  
   while((box.get('Nudel  $x')!=null )|| (box.get('Nudel $y+1)') != null)){ //Falls mal eine Nudel herausgelöscht wurde
     x++;
     y = x +1;
