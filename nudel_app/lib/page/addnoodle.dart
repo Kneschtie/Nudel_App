@@ -1,18 +1,61 @@
 
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nudel_app/main.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+var Nudelname = '';
+int Kochzeit = 0;
 
 
 final _neuesKey = GlobalKey<FormState>();
 
-class Addnoodles extends StatelessWidget{
-  const Addnoodles ({super.key});
+class Addnoodles extends StatefulWidget{
   
+
+  const Addnoodles ({super.key});
+
+  @override
+  State<Addnoodles> createState() => _AddnoodlesState();
+}
+
+class _AddnoodlesState extends State<Addnoodles> {
+  void EinlesendesTimers() async{
+      
+    x= 0;
+    y=0;
+
+    await Hive.initFlutter();
+    var box = await Hive.openBox('NudelSpeicher');
+      
+    while((box.get('Nudel  $x')!=null )|| (box.get('Nudel $y+1)') != null)){ //Falls mal eine Nudel herausgelöscht wurde
+        x++;
+      y = x +1;
+
+  }
+
+  
+  
+  }
+
   @override
   Widget build(BuildContext context){
-
+    
+    void updateUserText(String text){
+      setState(() {
+        Nudelname = text;
+      });
+    }
+    void updateTime(String Time){
+      setState(() {
+        Kochzeit = int.parse(Time);
+      });
+    }
+    
 
     int valuetime = 0;
     String valuename = '';
@@ -21,7 +64,10 @@ class Addnoodles extends StatelessWidget{
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Trage neue Nudel ein"),
+          title: Text("neue Nudel N:$x",
+          //textAlign: TextAlign.center, //macht nichts
+          ),
+          
        backgroundColor: Colors.orange,
        leading: Builder(
         builder: (BuildContext context) {
@@ -48,25 +94,40 @@ class Addnoodles extends StatelessWidget{
       children: <Widget> [
         Spacer(flex: 1,),
       TextFormField(
+          onFieldSubmitted: updateUserText ,
           keyboardType: TextInputType.text,
           autocorrect: true,
           decoration: InputDecoration(
           labelText: 'Name',
           border: OutlineInputBorder(),
+          
           ),
+        
+          
           validator: (value) {
         if (value == '') {
           return 'Bitte Nudelnamen eingeben!';
         }
+        
     return null;
   },
+  
         ),
         SizedBox(height: 40,),
         TextFormField(
+          onFieldSubmitted: updateTime ,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
             labelText: 'Kochdauer in Sekunden',
             border: OutlineInputBorder(),
+            icon: 
+            Icon
+            (Icons.timer,
+            
+            color: Colors.orange,
+
+            
+            )
           
           ),
           validator: (value) {
@@ -75,6 +136,7 @@ class Addnoodles extends StatelessWidget{
         }
         return null;
   },
+
         
         inputFormatters: <TextInputFormatter>[
            FilteringTextInputFormatter.digitsOnly,
@@ -98,6 +160,8 @@ class Addnoodles extends StatelessWidget{
             child: Text('Löschen'),
            ),
            SizedBox(width: 25,),
+
+
            ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             primary: Colors.orange,
@@ -107,13 +171,17 @@ class Addnoodles extends StatelessWidget{
                           if (_neuesKey.currentState!.validate() ) {
                              print(
                                "Formular ist gültig und kann verarbeitet werden");
-                          } else {
+                               Datensetzen();
+                               
+                          }
+                          
+                           else {
                             print("Formular ist nicht gültig");
                           }
                           
                         },
                         child: Text('Speichern'),
-                      )
+                      ),
 
               
           ],
@@ -132,13 +200,17 @@ class Addnoodles extends StatelessWidget{
       ),
     );
   }
-
- 
 }
 
+void Datensetzen() async{
+    await Hive.initFlutter();
+    var box = await Hive.openBox('NudelSpeicher');
+    print (Nudelname);
+    box.put('Nudel $y', Nudelname);
+    box.put('Nudel.time $y', Kochzeit);
 
 
-
+  }
 
 
 
