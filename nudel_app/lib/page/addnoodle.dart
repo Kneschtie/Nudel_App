@@ -71,6 +71,7 @@ class Addnoodles extends StatelessWidget{
 
         ),
         SizedBox(height: 30,),
+        Spacer(),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -105,8 +106,8 @@ class Addnoodles extends StatelessWidget{
               
           ],
         ),
-        Spacer(flex: 1,)
-        
+       
+        SizedBox(height: 40,),
       
 
       ],
