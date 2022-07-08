@@ -77,9 +77,9 @@ class _NudelAppState extends State<NudelApp> {
             bottom: const TabBar(
               tabs: [
                 Tab(
-                  icon: Icon(Icons.home)),
-                Tab(icon: Icon(Icons.ramen_dining)),
-                Tab(icon: Icon(Icons.settings)),
+                  icon: Icon(Icons.ramen_dining)),
+                Tab(icon: Icon(Icons.menu_book)),
+                Tab(icon: Icon(Icons.sports_esports)),
               ],
             ),
             

@@ -21,7 +21,7 @@ class Addnoodles extends StatelessWidget{
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("erstelle neue Nudel"),
+          title: Text("Trage neue Nudel ein"),
        backgroundColor: Colors.orange,
        leading: Builder(
         builder: (BuildContext context) {
@@ -54,6 +54,12 @@ class Addnoodles extends StatelessWidget{
           labelText: 'Name',
           border: OutlineInputBorder(),
           ),
+          validator: (value) {
+        if (value == '') {
+          return 'Bitte Nudelnamen eingeben!';
+        }
+    return null;
+  },
         ),
         SizedBox(height: 40,),
         TextFormField(
@@ -61,9 +67,15 @@ class Addnoodles extends StatelessWidget{
           decoration: InputDecoration(
             labelText: 'Kochdauer in Sekunden',
             border: OutlineInputBorder(),
-
+          
           ),
-        validator: zahlValidator,
+          validator: (value) {
+        if (value == '') {
+          return 'Bitte Sekundenzahl angegeben!';
+        }
+        return null;
+  },
+        
         inputFormatters: <TextInputFormatter>[
            FilteringTextInputFormatter.digitsOnly,
 
@@ -88,17 +100,17 @@ class Addnoodles extends StatelessWidget{
            SizedBox(width: 25,),
            ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.blue,
+                            primary: Colors.orange,
                             textStyle: TextStyle(color: Colors.white)),
                         onPressed: () {
- /*                         // Wenn alle Validatoren der Felder des Formulars gültig sind.
-                          if (_neuesKey.currentState.validate()) {
+                          // Wenn alle Validatoren der Felder des Formulars gültig sind.
+                          if (_neuesKey.currentState!.validate() ) {
                              print(
                                "Formular ist gültig und kann verarbeitet werden");
                           } else {
                             print("Formular ist nicht gültig");
                           }
-                          */
+                          
                         },
                         child: Text('Speichern'),
                       )
@@ -121,18 +133,27 @@ class Addnoodles extends StatelessWidget{
     );
   }
 
- String zahlValidator(value) {
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+/*String zahlValidator(value) {
     var zahl = int.tryParse(value.toString()) ?? 0;
     if (zahl % 2 == 0) {
       return 'Es sind nur ungerade Zahlen erlaubt';
     }
     return '';
   }
-}
-
-
-
-
+  */
 /*
 
 class Addnoodles extends StatefulWidget{
