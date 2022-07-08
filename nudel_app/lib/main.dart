@@ -1,7 +1,4 @@
-
-
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:nudel_app/page/addnoodle.dart';
 import 'package:nudel_app/page/einstellungen.dart';
@@ -11,20 +8,21 @@ import 'package:nudel_app/widgets.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-
+int x = 0;
+  int y = 0;
+  
 
 
 void main() async{
   
   WidgetsFlutterBinding.ensureInitialized();
-  int x = 0;
-  int test = 1;
-  int y = 0;
+  
+  
   await Hive.initFlutter();
   var box = await Hive.openBox('NudelSpeicher');
-  print(box.get('Nudel $test'));
-  box.put('Nudel $test', 'hallo');
-  print(box.get('Nudel 1'));
+  
+  
+  
   
   while((box.get('Nudel  $x')!=null )|| (box.get('Nudel $y+1)') != null)){ //Falls mal eine Nudel herausgelöscht wurde
     x++;
@@ -33,10 +31,10 @@ void main() async{
 
   }
 
-  var NudelArray = new Array(x,4); // IM ersten Teil ist der Name, im Zweiten die zu kochende Zeit, im Dritten wann zuletzt gekocht wurde (4. ist dann für das Zugehörige Bild)
+   // IM ersten Teil ist der Name, im Zweiten die zu kochende Zeit, im Dritten wann zuletzt gekocht wurde (4. ist dann für das Zugehörige Bild)
   for(int i=0; i<x; i++){
-    if(box.get('Nudel  $x') != null){ //Falls ein leeres Element da war, die nächsten Elemente nach vorn Verschieben
-      
+    if(box.get('Nudel  $i') != null){ //Falls ein leeres Element da war, die nächsten Elemente nach vorn Verschieben
+      //NudelArray(i , 1) = box.get('Nudel  $i');
     }
 
   }
@@ -54,15 +52,13 @@ class NudelApp extends StatefulWidget {
   State<NudelApp> createState() => _NudelAppState();
 }
 
-class Nudelmanager{
-
 
   String NudelanPlatz(int z){
     return ("test");
   }
 
   
-}
+
 
 class _NudelAppState extends State<NudelApp> {
  

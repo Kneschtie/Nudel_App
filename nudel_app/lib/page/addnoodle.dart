@@ -1,5 +1,7 @@
 
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:nudel_app/main.dart';
 
 
@@ -10,6 +12,12 @@ class Addnoodles extends StatelessWidget{
   
   @override
   Widget build(BuildContext context){
+
+
+    int valuetime = 0;
+    String valuename = '';
+
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -32,9 +40,11 @@ class Addnoodles extends StatelessWidget{
 
 
    body: Form(
-    key:  _neuesKey,
+    key:_neuesKey,
+    child: Padding(padding: const EdgeInsets.all(10),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
+      
       children: <Widget> [
         Spacer(flex: 1,),
       TextFormField(
@@ -45,22 +55,81 @@ class Addnoodles extends StatelessWidget{
           border: OutlineInputBorder(),
           ),
         ),
+        SizedBox(height: 40,),
+        TextFormField(
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(
+            labelText: 'Kochdauer in Sekunden',
+            border: OutlineInputBorder(),
+
+          ),
+        validator: zahlValidator,
+        inputFormatters: <TextInputFormatter>[
+           FilteringTextInputFormatter.digitsOnly,
+
+        ],
+
+        ),
+        SizedBox(height: 30,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.blueGrey,
+              textStyle: TextStyle(color: Colors.white),
+            ),
+            onPressed: (){
+              runApp(NudelApp());
+            },
+            child: Text('Löschen'),
+           ),
+           SizedBox(width: 25,),
+           ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.blue,
+                            textStyle: TextStyle(color: Colors.white)),
+                        onPressed: () {
+ /*                         // Wenn alle Validatoren der Felder des Formulars gültig sind.
+                          if (_neuesKey.currentState.validate()) {
+                             print(
+                               "Formular ist gültig und kann verarbeitet werden");
+                          } else {
+                            print("Formular ist nicht gültig");
+                          }
+                          */
+                        },
+                        child: Text('Speichern'),
+                      )
+
+              
+          ],
+        ),
         Spacer(flex: 1,)
         
       
 
       ],
-    )
+    ),
    
    
+    ),
    ),
       
       ),
     );
   }
 
-
+ String zahlValidator(value) {
+    var zahl = int.tryParse(value.toString()) ?? 0;
+    if (zahl % 2 == 0) {
+      return 'Es sind nur ungerade Zahlen erlaubt';
+    }
+    return '';
+  }
 }
+
+
 
 
 /*
