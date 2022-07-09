@@ -25,18 +25,36 @@ class Addnoodles extends StatefulWidget{
 
 class _AddnoodlesState extends State<Addnoodles> {
   void EinlesendesTimers() async{
-      
+      bool stop =false;
     x= 0;
     y=0;
 
     await Hive.initFlutter();
     var box = await Hive.openBox('NudelSpeicher');
       
-    while((box.get('Nudel  $x')!=null )|| (box.get('Nudel $y+1)') != null)){ //Falls mal eine Nudel herausgelöscht wurde
-        x++;
-      y = x +1;
+    while(stop == false){
+    y = x + 1;
+    if((box.get('Nudel $x') != null ) && (box.get('Nudel $x') != '')){
+      
+      print(x);
+      print(box.get('Nudel $x'));
+      x++;
+      
+    }
+    else if((box.get('Nudel $y') != null ) && (box.get('Nudel $y') != '')){
+      	
+        box.put('Nudel $x', box.get('Nudel $y'));
+
+    }
+    else{
+      x --; //Der Index muss bei 0 beginnen
+      stop = true;
+    } 
 
   }
+  print('gesamte Anzahl');
+  print(x);
+  y = x + 1;
 
   
   
@@ -47,12 +65,20 @@ class _AddnoodlesState extends State<Addnoodles> {
     
     void updateUserText(String text){
       setState(() {
+        print(text);
         Nudelname = text;
       });
     }
     void updateTime(String Time){
       setState(() {
+        
+        if(Time != ''){
+        print('$Time');
         Kochzeit = int.parse(Time);
+        }
+        else{
+          print('0');
+        }
       });
     }
     
@@ -64,7 +90,7 @@ class _AddnoodlesState extends State<Addnoodles> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("neue Nudel N:$x",
+          title: Text("neue Nudel N:$y",
           //textAlign: TextAlign.center, //macht nichts
           ),
           
@@ -94,7 +120,7 @@ class _AddnoodlesState extends State<Addnoodles> {
       children: <Widget> [
         Spacer(flex: 1,),
       TextFormField(
-          onFieldSubmitted: updateUserText ,
+          onChanged: updateUserText ,
           keyboardType: TextInputType.text,
           autocorrect: true,
           decoration: InputDecoration(
@@ -115,7 +141,7 @@ class _AddnoodlesState extends State<Addnoodles> {
         ),
         SizedBox(height: 40,),
         TextFormField(
-          onFieldSubmitted: updateTime ,
+          onChanged: updateTime ,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
             labelText: 'Kochdauer in Sekunden',
@@ -159,7 +185,7 @@ class _AddnoodlesState extends State<Addnoodles> {
             },
             child: Text('Löschen'),
            ),
-           SizedBox(width: 25,),
+           Spacer(),
 
 
            ElevatedButton(
@@ -169,8 +195,9 @@ class _AddnoodlesState extends State<Addnoodles> {
                         onPressed: () {
                           // Wenn alle Validatoren der Felder des Formulars gültig sind.
                           if (_neuesKey.currentState!.validate() ) {
-                             print(
-                               "Formular ist gültig und kann verarbeitet werden");
+                            EinlesendesTimers();
+                             print("Formular ist gültig und kann verarbeitet werden");
+                               print(Nudelname);
                                Datensetzen();
                                
                           }
@@ -208,6 +235,10 @@ void Datensetzen() async{
     print (Nudelname);
     box.put('Nudel $y', Nudelname);
     box.put('Nudel.time $y', Kochzeit);
+    print('Datengesetzt');
+    print(box.get('Nudel $y'));
+    print(box.get('Nudel.time $y'));
+    print('$y');
 
 
   }

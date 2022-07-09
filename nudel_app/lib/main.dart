@@ -9,7 +9,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 int x = 0;
-  int y = 0;
+  int y = 1;
   
 
 
@@ -21,15 +21,44 @@ void main() async{
   await Hive.initFlutter();
   var box = await Hive.openBox('NudelSpeicher');
   
-  print(box.get('Nudel 0'));
-  print(box.get('Nudel.time 0'));
+  bool stop = false;
   
-  while((box.get('Nudel  $x')!=null )|| (box.get('Nudel $y+1)') != null)){ //Falls mal eine Nudel herausgelöscht wurde
-    x++;
-    y = x +1;
+  while(stop == false){
+    y = x + 1;
+    if((box.get('Nudel $x') != null ) && (box.get('Nudel $x') != '')){
+      
+      print(x);
+      print(box.get('Nudel $x'));
+      x++;
+      
+    }
+    else if((box.get('Nudel $y') != null ) && (box.get('Nudel $y') != '')){
+      	
+        box.put('Nudel $x', box.get('Nudel $y'));
 
+    }
+    else{
+      x --; //Der Index muss bei 0 beginnen
+      stop = true;
+    } 
 
   }
+  print('gesamte Anzahl');
+  print(x);
+  y = x + 1;
+  //  (box.get('Nudel $x')!=null )|| (box.get('Nudel $y)') != null)){ //Falls mal eine Nudel herausgelöscht wurde
+  //  print('Name' + box.get('Nudel $x')); 
+//
+  // 
+  //  
+  //  print(box.get('Nudel.time $x')); 
+  //  
+  //  x++;
+  //  y = x +1;
+
+
+  
+  print(x);
 
    // IM ersten Teil ist der Name, im Zweiten die zu kochende Zeit, im Dritten wann zuletzt gekocht wurde (4. ist dann für das Zugehörige Bild)
   for(int i=0; i<x; i++){

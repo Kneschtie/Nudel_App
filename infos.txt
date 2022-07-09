@@ -1,0 +1,2 @@
+Speicherung der Rezepte
+Beim Entfernen Einer Nudel muss überprüft werden, ob sie unter "letzten Nudeln" noch vorhanden ist
