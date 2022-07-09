@@ -34,7 +34,7 @@ Widget customAppBAr (String title) {
   }
 
 
-Widget NudelWidget(String xyz, String internetadress){
+Widget NudelWidget(String xyz, int Time, String internetadress){
   return InkWell(
     onTap: (){ runApp(Addnoodles());
     },
@@ -52,25 +52,37 @@ Widget NudelWidget(String xyz, String internetadress){
         borderRadius: BorderRadius.all(Radius.circular(20))),
         elevation: 3,
     color: Color.fromARGB(255, 245, 245, 138),
-      child: Padding(padding: const EdgeInsets.all(5),   
+      child: Padding(padding: const EdgeInsets.all(15),   
     child: Center(
       
       
           child: Row(children: [
         Image.asset(internetadress,),
         Spacer(),
-        Text(xyz,
         
-        style: TextStyle(color: Colors.black, fontSize: 18, ),
-        
+          Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+          Text(xyz,        
+          style: TextStyle(color: Colors.black, fontSize: 20, ),
+          ),
+          Spacer(),
+          Text ('$Time s',
+          textAlign: TextAlign.right,
+          style: TextStyle(color: Colors.black, fontSize: 20, ),
+          ),
+          ],
         ),
         
         
+        
+          
       ],
           ),
        ),
        ),
     ),
+    
     ),
 
       );

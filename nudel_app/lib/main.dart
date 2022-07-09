@@ -1,5 +1,6 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'package:nudel_app/page/Nudelinformationen.dart';
 import 'package:nudel_app/page/addnoodle.dart';
 import 'package:nudel_app/page/einstellungen.dart';
 import 'package:nudel_app/page/nudeluebersich.dart';
@@ -21,6 +22,38 @@ void main() async{
   await Hive.initFlutter();
   var box = await Hive.openBox('NudelSpeicher');
   
+  
+  //box.put('firstStart', 'true');
+    
+    int i0 = 300;
+    int i1 = 420;
+    int i2 = 360;
+     if(box.get('firstStart')!= 'false' ||box.get('firstStart')!= null){
+      	box.put('firstStart', 'false');
+
+        box.put('Nudel 0', 'Spaghetti');
+        box.put('Nudel.time 0', i0);
+
+        box.put('Nudel 1', 'Macheroni');
+        box.put('Nudel.time 1', i1);
+
+        box.put('Nudel 2', 'Piccolini Penne');
+        box.put('Nudel.time 2', i2);
+
+        box.put('Nudel 3', 'Risoni');
+        box.put('Nudel.time 3', i2);
+
+        box.put('letzte0', 0); // die letzte gekochte Nudel index null
+        box.put('letzte1', 1);
+        box.put('letzte2', 2);
+        box.put('letzte3', 3);
+        print('Zugeordnet');
+        
+
+    }
+    print(box.get('firstStart'));
+
+
   bool stop = false;
   
   while(stop == false){
@@ -35,7 +68,9 @@ void main() async{
     else if((box.get('Nudel $y') != null ) && (box.get('Nudel $y') != '')){
       	
         box.put('Nudel $x', box.get('Nudel $y'));
-
+        box.put('Nudel.time $x', box.get('Nudel.time $y'));
+        box.put('Nudel $y', null);
+        box.put('Nudel.time $y', null);
     }
     else{
       x --; //Der Index muss bei 0 beginnen
@@ -67,6 +102,7 @@ void main() async{
     }
 
   }
+  
 
   runApp(const NudelApp());
 
@@ -142,6 +178,7 @@ class _NudelAppState extends State<NudelApp> {
         ),
           floatingActionButton: FloatingActionButton(
           onPressed: () {
+            //runApp(Addnoodles());
             runApp(Addnoodles());
           },
           tooltip: 'Füge Nudeln hinzu',

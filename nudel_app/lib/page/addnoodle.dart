@@ -29,9 +29,12 @@ class _AddnoodlesState extends State<Addnoodles> {
     x= 0;
     y=0;
 
+
+
     await Hive.initFlutter();
     var box = await Hive.openBox('NudelSpeicher');
       
+    
     while(stop == false){
     y = x + 1;
     if((box.get('Nudel $x') != null ) && (box.get('Nudel $x') != '')){
@@ -47,7 +50,7 @@ class _AddnoodlesState extends State<Addnoodles> {
 
     }
     else{
-      x --; //Der Index muss bei 0 beginnen
+      x --; //Der Index muss bei 0 beginnen -> man wäre 1 zu hoch eingestellt
       stop = true;
     } 
 
@@ -199,6 +202,7 @@ class _AddnoodlesState extends State<Addnoodles> {
                              print("Formular ist gültig und kann verarbeitet werden");
                                print(Nudelname);
                                Datensetzen();
+                               runApp(NudelApp());
                                
                           }
                           
