@@ -21,8 +21,8 @@ void main() async{
   await Hive.initFlutter();
   var box = await Hive.openBox('NudelSpeicher');
   
-  
-  
+  print(box.get('Nudel 0'));
+  print(box.get('Nudel.time 0'));
   
   while((box.get('Nudel  $x')!=null )|| (box.get('Nudel $y+1)') != null)){ //Falls mal eine Nudel herausgelöscht wurde
     x++;
