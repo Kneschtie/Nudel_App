@@ -202,6 +202,7 @@ class _AddnoodlesState extends State<Addnoodles> {
                              print("Formular ist gültig und kann verarbeitet werden");
                                print(Nudelname);
                                Datensetzen();
+                               NudelApp().refreshVariables();
                                runApp(NudelApp());
                                
                           }

@@ -6,20 +6,12 @@ import 'package:flutter/services.dart';
 import 'package:nudel_app/main.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:nudel_app/page/wichtigeVariables.dart';
+
 
 class Nudelinfos extends StatelessWidget{
   @override
   
-
-  
-
-
-
-
-
-
-
-
   int Kochzeitinfosite = 0;
   
   static int x = 0;
@@ -153,10 +145,20 @@ String getNudelName(){
    body: Center(
     child: Column(
       children: [
-        Text(getNudelName()),
+        Spacer(),
+        Text(getNudelName(),
+        style: TextStyle(
+          fontSize: 30,
+        ),),
         Text('$Kochzeitinfosite'),
+        Spacer(),
+        
+
+      
+ Spacer(),
       ],
     ) ,
+    
    ),
 
         ),

@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nudel_app/page/Nudelinformationen.dart';
 import 'package:nudel_app/page/addnoodle.dart';
-import 'package:nudel_app/page/einstellungen.dart';
+import 'package:nudel_app/page/AlleNudeln.dart';
 import 'package:nudel_app/page/nudeluebersich.dart';
+import 'package:nudel_app/page/wichtigeVariables.dart';
 import 'package:nudel_app/page/zuletztgekocht.dart';
 import 'package:nudel_app/widgets.dart';
 import 'package:hive/hive.dart';
@@ -15,7 +16,7 @@ int x = 0;
 
 
 
-Future<void> main() async{
+Future<void> main() async {
   
   WidgetsFlutterBinding.ensureInitialized();
   
@@ -82,6 +83,7 @@ Future<void> main() async{
   }
   print('gesamte Anzahl');
   print(x);
+  WichtigeVariablen().setAmountofNoodles(x);
   y = x + 1;
   //  (box.get('Nudel $x')!=null )|| (box.get('Nudel $y)') != null)){ //Falls mal eine Nudel herausgelöscht wurde
   //  print('Name' + box.get('Nudel $x')); 
@@ -95,7 +97,7 @@ Future<void> main() async{
 
 
   
-  print(x);
+  
 
    // IM ersten Teil ist der Name, im Zweiten die zu kochende Zeit, im Dritten wann zuletzt gekocht wurde (4. ist dann für das Zugehörige Bild)
   for(int i=0; i<x; i++){
@@ -104,8 +106,20 @@ Future<void> main() async{
     }
 
   }
-  
 
+  for (int i=0; i<=x ; i++){
+    
+    WichtigeVariablen().Nudelname(box.get('Nudel $i'), box.get('Nudel.time $i'),i);
+
+    //WichtigeVariablen.Nudelnameliste.add(box.get('Nudel $i'));
+
+  }
+  for (int i=0; i<4; i++){
+    WichtigeVariablen().setLastNoodles(i, box.get('letzte$i'));
+
+  }
+  print('############');
+  WichtigeVariablen().allesAusgeben();
   runApp(const NudelApp());
 
   
@@ -114,7 +128,24 @@ Future<void> main() async{
 
 class NudelApp extends StatefulWidget {
   const NudelApp({super.key});
+  void refreshVariables() async{
+    await Hive.initFlutter();
+  var box = await Hive.openBox('NudelSpeicher');
+     for (int i=0; i<=x ; i++){
+    
+    WichtigeVariablen().Nudelname(box.get('Nudel $i'), box.get('Nudel.time $i'),i);
 
+    //WichtigeVariablen.Nudelnameliste.add(box.get('Nudel $i'));
+
+  }
+  for (int i=0; i<4; i++){
+    WichtigeVariablen().setLastNoodles(i, box.get('letzte$i'));
+
+  }
+  print('############');
+  }
+
+  
   @override
   State<NudelApp> createState() => _NudelAppState();
 }
@@ -128,7 +159,7 @@ class NudelApp extends StatefulWidget {
 
 
 class _NudelAppState extends State<NudelApp> {
- 
+  
           
             @override
   Widget build(BuildContext context) {
