@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nudel_app/page/Nudelinformationen.dart';
 import 'package:nudel_app/page/addnoodle.dart';
@@ -8,13 +9,13 @@ import 'package:nudel_app/page/zuletztgekocht.dart';
 import 'package:nudel_app/widgets.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 int x = 0;
   int y = 1;
-  
 
 
-void main() async{
+
+Future<void> main() async{
   
   WidgetsFlutterBinding.ensureInitialized();
   
@@ -48,7 +49,7 @@ void main() async{
         box.put('letzte2', 2);
         box.put('letzte3', 3);
         print('Zugeordnet');
-        
+        //Test
 
     }
    
