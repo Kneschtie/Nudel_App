@@ -39,7 +39,7 @@ class page1 extends StatelessWidget{
 
 @override
   
-  void InitializeNudelspeicher() async{
+ Future< void> InitializeNudelspeicher() async{
 
     await Hive.initFlutter();
     var box = await Hive.openBox('NudelSpeicher');

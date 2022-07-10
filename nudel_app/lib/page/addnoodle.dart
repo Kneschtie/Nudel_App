@@ -24,7 +24,7 @@ class Addnoodles extends StatefulWidget{
 }
 
 class _AddnoodlesState extends State<Addnoodles> {
-  void EinlesendesTimers() async{
+  Future<void> EinlesendesTimers() async{
       bool stop =false;
     x= 0;
     y=0;

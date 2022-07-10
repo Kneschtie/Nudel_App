@@ -37,7 +37,7 @@ Widget customAppBAr (String title) {
 
 
 Widget NudelWidget(String xyz, int Time, int index, String internetadress){
-  void openSite(int indexll)async{
+  Future<void> openSite(int indexll)async{
       await Hive.initFlutter();
     var box = await Hive.openBox('NudelSpeicher');
     box.put('number',indexll);
