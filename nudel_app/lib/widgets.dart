@@ -11,11 +11,11 @@ Widget customAppBAr (String title) {
   //  Tab(icon: Icon(Icons.ramen_dining)),
   //  Tab(icon: Icon(Icons.settings)),
   //];
-  final List<Tab> myTabs = <Tab>[
-    Tab(icon: Icon(Icons.home)),
-    Tab(icon: Icon(Icons.ramen_dining)),
-    Tab(icon: Icon(Icons.settings)),
-  ];
+    final List<Tab> myTabs = <Tab>[
+      Tab(icon: Icon(Icons.home)),
+      Tab(icon: Icon(Icons.ramen_dining)),
+      Tab(icon: Icon(Icons.settings)),
+    ];
   
     return DefaultTabController(
       length: myTabs.length,
@@ -35,18 +35,19 @@ Widget customAppBAr (String title) {
           
   }
 
-void openSite(int indexll)async{
+
+Widget NudelWidget(String xyz, int Time, int index, String internetadress){
+  void openSite(int indexll)async{
       await Hive.initFlutter();
     var box = await Hive.openBox('NudelSpeicher');
     box.put('number',indexll);
   }
-Widget NudelWidget(String xyz, int Time, int index, String internetadress){
-  
 
   
   return InkWell(
     onTap: (){
       openSite(index);
+      print(index);
        runApp(Nudelinfos());
     },
     child: Container(

@@ -7,21 +7,19 @@ import 'package:nudel_app/main.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-
-
-class Nudelinfos extends StatefulWidget{
+class Nudelinfos extends StatelessWidget{
   @override
-  State<Nudelinfos> createState() => _NudelinfosState();
+  
 
   
 
 
 
-}
 
 
 
-class _NudelinfosState extends State<Nudelinfos> {
+
+
   int Kochzeitinfosite = 0;
   
   static int x = 0;
@@ -53,7 +51,7 @@ static String Nudelname = '';
    
 
 }
-void DeleteaktuelleNudel()async{
+void DeleteaktuelleNudel() async{
   await Hive.initFlutter();
   var box = await Hive.openBox('NudelSpeicher');
   box.put('Nudel $Nudelx', null);
@@ -91,13 +89,18 @@ while(stop == false){
 
   }
 }
+String getNudelName(){
+  InitializeNudelspeicher();
+  InitializeNudelspeicher();
+  return Nudelname;
+}
   @override
   
-  initState(){
-    super.initState;
-    InitializeNudelspeicher();
-    print('InitStateinizialized');
-      }
+ // initState(){
+ //   super.initState;
+ //   InitializeNudelspeicher();
+ //   print('InitStateinizialized');
+ //     }
   Widget build(BuildContext context){
 
 
@@ -150,7 +153,7 @@ while(stop == false){
    body: Center(
     child: Column(
       children: [
-        Text('$Nudelname'),
+        Text(getNudelName()),
         Text('$Kochzeitinfosite'),
       ],
     ) ,

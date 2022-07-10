@@ -28,15 +28,15 @@ int N0 = 0;
 
 
 
-class page1 extends StatefulWidget{
-  @override
-  State<page1> createState() => _page1State();
-}
+class page1 extends StatelessWidget{
+
+  //const page1({super.key});
 
 
 
 
-class _page1State extends State<page1>{
+
+
 @override
   
   void InitializeNudelspeicher() async{
@@ -51,7 +51,7 @@ class _page1State extends State<page1>{
         Name0 = box.get('Nudel $N0');
         if(box.get('Nudel.time $N0') != ''){
           Time0 = box.get('Nudel.time $N0');
-
+          print('####');
           print(Time0);
           print(Name0);
         }
@@ -101,22 +101,83 @@ class _page1State extends State<page1>{
         Name3 = 'Error';
       }
     }
-
+    print('ready');
     timex ++;// Ohne das Funktioniert es aus irgendeinem Grund nicht??? 
     //Time0 = 100;       // Ohne das Funktioniert es aus irgendeinem Grund nicht??? 
     //Name0 = 'Hello';   // Ohne das Funktioniert es aus irgendeinem Grund nicht??? 
   }
-  
-
-   void initState(){
-    super.initState();
+  String Getname(int y){
     InitializeNudelspeicher();
-    print('InitStateinizialized');
-    print(Time0);
-    print(Name0);
-          
+
+
+    switch (y) {
+      
+      case 0:
+         return Name0;
+      break;
+
+      case 1:
+        return Name1;
+      break;
+
+      case 2:
+        return Name2;
+      break;
+      case 3:
+        return Name3;
+        break;
+      default:
+      return 'Error';
+      break;
+    }
     
-      }
+  }
+  int Gettime(int y){
+    InitializeNudelspeicher();
+
+
+    switch (y) {
+      
+      case 0:
+         return Time0;
+      break;
+
+      case 1:
+        return Time1;
+      break;
+
+      case 2:
+        return Time2;
+      break;
+      case 3:
+        return Time3;
+        break;
+      default:
+      print('problem');
+      return 0;
+      break;
+    }
+    
+  }
+
+   //void initState(){
+   // super.initState();
+   // InitializeNudelspeicher();
+   // print('InitStateinizialized');
+   // 
+   // print(Time0);
+   // print(Name0);
+   //}
+   int x= 0;
+   @override
+  //void setState(VoidCallback Name0) {
+  //  // TODO: implement setState
+  //  if(Name0 == null || Name0 == ''){
+  //    x++;
+  //  }
+  //  super.setState(Name0);
+  //}
+    
   
   Widget build(BuildContext context,){
   return Scaffold(
@@ -138,11 +199,12 @@ class _page1State extends State<page1>{
           ),
           Spacer(),
           
-          NudelWidget(Name0,Time0,N0, "images/spaghetti (1)_Zeichenfläche 1.png"),
           
-          NudelWidget(Name1,Time1,N1, "images/andereNudeln.png"),
-          NudelWidget(Name2,Time2,N2, "images/andereNudeln.png"),
-          NudelWidget(Name3,Time3,N3, "images/andereNudeln.png"),
+          NudelWidget(Getname(0),Time0,N0, "images/spaghetti (1)_Zeichenfläche 1.png"),
+          
+          NudelWidget(Getname(1),Time1,N1, "images/andereNudeln.png"),
+          NudelWidget(Getname(2),Time2,N2, "images/andereNudeln.png"),
+          NudelWidget(Getname(3),Time3,N3, "images/andereNudeln.png"),
           //NudelWidget('asdf'),
           Spacer(),
         ],
