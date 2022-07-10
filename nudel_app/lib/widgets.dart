@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nudel_app/page/Nudelinformationen.dart';
 import 'package:nudel_app/page/addnoodle.dart';
-
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 Widget customAppBAr (String title) { 
   @override
@@ -33,10 +35,19 @@ Widget customAppBAr (String title) {
           
   }
 
+void openSite(int indexll)async{
+      await Hive.initFlutter();
+    var box = await Hive.openBox('NudelSpeicher');
+    box.put('number',indexll);
+  }
+Widget NudelWidget(String xyz, int Time, int index, String internetadress){
+  
 
-Widget NudelWidget(String xyz, int Time, String internetadress){
+  
   return InkWell(
-    onTap: (){ runApp(Addnoodles());
+    onTap: (){
+      openSite(index);
+       runApp(Nudelinfos());
     },
     child: Container(
     

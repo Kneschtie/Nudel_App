@@ -6,10 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:nudel_app/main.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-int x = 0;
-int y= 0;
-int Nudelx = 0; // number of the Nudel index
-String Nudelname = '';
+
+
 
 class Nudelinfos extends StatefulWidget{
   @override
@@ -24,8 +22,13 @@ class Nudelinfos extends StatefulWidget{
 
 
 class _NudelinfosState extends State<Nudelinfos> {
+  int Kochzeitinfosite = 0;
   
-  
+  static int x = 0;
+static int y= 0;
+static int Nudelx = 0; // number of the Nudel index
+static String Nudelname = '';
+
  void InitializeNudelspeicher() async{
 
   await Hive.initFlutter();
@@ -36,6 +39,9 @@ class _NudelinfosState extends State<Nudelinfos> {
     print(Nudelx);
     if(box.get('Nudel $Nudelx') != null){
     Nudelname = box.get('Nudel $Nudelx');
+    if(box.get('Nudel.time $Nudelx') != 0){
+      Kochzeitinfosite = box.get('Nudel.time $Nudelx');
+    }
     }
     else{
       Nudelname = '';
@@ -115,9 +121,8 @@ while(stop == false){
         builder: (BuildContext context) {
         return IconButton(
          icon: const Icon(Icons.arrow_back),
-       onPressed: (
-        
-       ) {
+       onPressed: () {
+       
         runApp(NudelApp());
        //MaterialPageRoute(builder: (context) => const NudelApp());
        }
@@ -140,6 +145,15 @@ while(stop == false){
   ),
  ],
  
+   ),
+   
+   body: Center(
+    child: Column(
+      children: [
+        Text('$Nudelname'),
+        Text('$Kochzeitinfosite'),
+      ],
+    ) ,
    ),
 
         ),

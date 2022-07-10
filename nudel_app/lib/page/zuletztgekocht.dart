@@ -50,10 +50,10 @@ class _page1State extends State<page1>{
       if(box.get('Nudel $N0') != null){
         Name0 = box.get('Nudel $N0');
         if(box.get('Nudel.time $N0') != ''){
-          Time0 = box.get('Nudel.time $N1');
+          Time0 = box.get('Nudel.time $N0');
 
-          //print(Time0);
-          //print(Name0);
+          print(Time0);
+          print(Name0);
         }
       }
       else{
@@ -102,7 +102,7 @@ class _page1State extends State<page1>{
       }
     }
 
-    timex++;// Ohne das Funktioniert es aus irgendeinem Grund nicht??? 
+    timex ++;// Ohne das Funktioniert es aus irgendeinem Grund nicht??? 
     //Time0 = 100;       // Ohne das Funktioniert es aus irgendeinem Grund nicht??? 
     //Name0 = 'Hello';   // Ohne das Funktioniert es aus irgendeinem Grund nicht??? 
   }
@@ -138,11 +138,11 @@ class _page1State extends State<page1>{
           ),
           Spacer(),
           
-          NudelWidget(Name0,Time0, "images/spaghetti (1)_Zeichenfläche 1.png"),
+          NudelWidget(Name0,Time0,N0, "images/spaghetti (1)_Zeichenfläche 1.png"),
           
-          NudelWidget(Name1,Time1, "images/andereNudeln.png"),
-          NudelWidget(Name2,Time2, "images/andereNudeln.png"),
-          NudelWidget(Name3,Time3, "images/andereNudeln.png"),
+          NudelWidget(Name1,Time1,N1, "images/andereNudeln.png"),
+          NudelWidget(Name2,Time2,N2, "images/andereNudeln.png"),
+          NudelWidget(Name3,Time3,N3, "images/andereNudeln.png"),
           //NudelWidget('asdf'),
           Spacer(),
         ],
