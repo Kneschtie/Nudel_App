@@ -1,21 +1,28 @@
 
 
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:nudel_app/page/fluttergame.dart';
 
 class page3 extends StatelessWidget{
   @override
   Widget build(BuildContext context) => Scaffold(
-    body:Container(
-      color: Colors.teal,
-      child:Center(
-        child: Text ('Content 1',
-        style: TextStyle(
-        fontSize: 32,
-        )
-        )
-        )
-        )
-        );
+    body:Column(
+      children: [
+        TextButton.icon(
+  onPressed: () {
+      // Respond to
+      // button press
+      runApp(FlutterGame());
+  },
+  icon: Icon(Icons.gamepad, size: 18),
+  label: Text("Play game"),
+)
+      ],
+
+        
+        ),);
 
   
 

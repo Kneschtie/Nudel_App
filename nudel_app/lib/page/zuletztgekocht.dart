@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:nudel_app/page/wichtigeVariables.dart';
 import 'package:nudel_app/widgets.dart';
 
 import 'package:hive/hive.dart';
@@ -45,12 +46,12 @@ class page1 extends StatelessWidget{
     var box = await Hive.openBox('NudelSpeicher');
 
     
-    if( box.get('letzte0') != null){
-      N0 = box.get('letzte0');
-      if(box.get('Nudel $N0') != null){
-        Name0 = box.get('Nudel $N0');
-        if(box.get('Nudel.time $N0') != ''){
-          Time0 = box.get('Nudel.time $N0');
+    if( WichtigeVariablen().Getlastnoodle(0) != null){
+      N0 = WichtigeVariablen().Getlastnoodle(0);
+      if(WichtigeVariablen().getNudelName(N0) != null){
+        Name0 = WichtigeVariablen().getNudelName(N0);
+        if(WichtigeVariablen().getKochzeit(N0) != ''){
+          Time0 = WichtigeVariablen().getKochzeit(N0);
           print('####');
           print(Time0);
           print(Name0);
@@ -61,26 +62,30 @@ class page1 extends StatelessWidget{
       }
     }
 
-    if( box.get('letzte1') != null){
-    N1 = box.get('letzte1');
-    if(box.get('Nudel $N1')!= null){
-        Name1 = box.get('Nudel $N1');
-        if(box.get('Nudel.time $N1') != ''){
-          Time1 = box.get('Nudel.time $N1');
+    if( WichtigeVariablen().Getlastnoodle(1) != null){
+      N1 = WichtigeVariablen().Getlastnoodle(1);
+      if(WichtigeVariablen().getNudelName(N1) != null){
+        Name1 = WichtigeVariablen().getNudelName(N1);
+        if(WichtigeVariablen().getKochzeit(N1) != ''){
+          Time1 = WichtigeVariablen().getKochzeit(N1);
+          print('####');
+          
         }
       }
       else{
         Name1 = 'Error';
       }
-    
     }
 
-    if( box.get('letzte2') != null){
-    N2 = box.get('letzte2');
-    if(box.get('Nudel $N2')!= null){
-        Name2 = box.get('Nudel $N2');
-        if(box.get('Nudel.time $N2') != null){
-          Time2 = box.get('Nudel.time $N2');
+    if( WichtigeVariablen().Getlastnoodle(2) != null){
+      N2 = WichtigeVariablen().Getlastnoodle(2);
+      if(WichtigeVariablen().getNudelName(N2) != null){
+        Name2 = WichtigeVariablen().getNudelName(N2);
+        if(WichtigeVariablen().getKochzeit(N2) != ''){
+          Time2 = WichtigeVariablen().getKochzeit(N2);
+          print('####');
+          print(Time0);
+          print(Name0);
         }
       }
       else{
@@ -89,16 +94,19 @@ class page1 extends StatelessWidget{
     }
 
 
-    if( box.get('letzte3') != null){
-    N3 = box.get('letzte3');
-    if(box.get('Nudel $N3')!= null){
-        Name3 = box.get('Nudel $N3');
-        if(box.get('Nudel.time $N3') != null){
-          Time3 = box.get('Nudel.time $N3');
+    if( WichtigeVariablen().Getlastnoodle(3) != null){
+      N3 = WichtigeVariablen().Getlastnoodle(3);
+      if(WichtigeVariablen().getNudelName(N3) != null){
+        Name3 = WichtigeVariablen().getNudelName(N3);
+        if(WichtigeVariablen().getKochzeit(N3) != ''){
+          Time3 = WichtigeVariablen().getKochzeit(N3);
+          print('####');
+          print(Time0);
+          print(Name0);
         }
       }
       else{
-        Name3 = 'Error';
+        Name0 = 'Error';
       }
     }
     print('ready');

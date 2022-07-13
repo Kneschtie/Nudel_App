@@ -82,8 +82,7 @@ while(stop == false){
   }
 }
 String getNudelName(){
-  InitializeNudelspeicher();
-  InitializeNudelspeicher();
+  WichtigeVariablen().getNudelName(WichtigeVariablen().OpennoodleIndex);
   return Nudelname;
 }
   @override

@@ -7,7 +7,7 @@ final Zuletztgekocht = List<int>.filled(4, 0);
 
 class WichtigeVariablen {
 
-
+int OpennoodleIndex = 0;
 
 
 
@@ -26,6 +26,15 @@ else{
 }
 }
 
+int GetlastNoodleindeX(){
+  return OpennoodleIndex;
+}
+void setlastNoodleindex(int x){
+  OpennoodleIndex = x;
+}
+
+
+
 String getNudelName(int x){
 
   return Nudelnameliste.elementAt(x);
@@ -42,9 +51,9 @@ void setLastNoodles(int index, int data){
 
 }
 
-int GetlastNoodleindex(int x){
+int Getlastnoodle(int x){
 
-  return 1;
+  return  Zuletztgekocht.elementAt(x);
 }
 
 void allesAusgeben(){

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nudel_app/page/Nudelinformationen.dart';
 import 'package:nudel_app/page/addnoodle.dart';
 import 'package:nudel_app/page/AlleNudeln.dart';
+import 'package:nudel_app/page/fluttergame.dart';
 import 'package:nudel_app/page/nudeluebersich.dart';
 import 'package:nudel_app/page/wichtigeVariables.dart';
 import 'package:nudel_app/page/zuletztgekocht.dart';
@@ -139,6 +140,7 @@ class NudelApp extends StatefulWidget {
 
   }
   for (int i=0; i<4; i++){
+
     WichtigeVariablen().setLastNoodles(i, box.get('letzte$i'));
 
   }
@@ -213,6 +215,7 @@ class _NudelAppState extends State<NudelApp> {
           onPressed: () {
             //runApp(Addnoodles());
             runApp(Addnoodles());
+           // runApp(FlutterGame());
           },
           tooltip: 'Füge Nudeln hinzu',
           child: Icon(Icons.add),

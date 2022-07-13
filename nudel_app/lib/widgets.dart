@@ -3,6 +3,7 @@ import 'package:nudel_app/page/Nudelinformationen.dart';
 import 'package:nudel_app/page/addnoodle.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:nudel_app/page/wichtigeVariables.dart';
 
 Widget customAppBAr (String title) { 
   @override
@@ -41,6 +42,8 @@ Widget NudelWidget(String xyz, int Time, int index, String internetadress){
       await Hive.initFlutter();
     var box = await Hive.openBox('NudelSpeicher');
     box.put('number',indexll);
+
+    WichtigeVariablen().setlastNoodleindex(indexll);
   }
 
   
