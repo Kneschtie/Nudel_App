@@ -1,5 +1,4 @@
 
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -82,7 +81,7 @@ while(stop == false){
   }
 }
 String getNudelName(){
-  WichtigeVariablen().getNudelName(WichtigeVariablen().OpennoodleIndex);
+  WichtigeVariablen().getNudelName(WichtigeVariablen().getopennodelindex());
   return Nudelname;
 }
   @override

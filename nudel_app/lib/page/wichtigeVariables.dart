@@ -32,7 +32,9 @@ int GetlastNoodleindeX(){
 void setlastNoodleindex(int x){
   OpennoodleIndex = x;
 }
-
+int getopennodelindex(){
+  return OpennoodleIndex;
+}
 
 
 String getNudelName(int x){

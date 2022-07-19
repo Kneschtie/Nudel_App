@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:nudel_app/main.dart';
 
 class FlutterGame extends StatelessWidget {
   const FlutterGame({Key? key}) : super(key: key);
@@ -29,8 +29,25 @@ String l = 'https://upload.wikimedia.org/wikipedia/commons/6/63/Nudeln_trocken_m
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Nudelkochzeitüberbrückungsspiel'),
-      ),
+          title: Text("Nudelkochzeitüberbrückungsspiel",
+          //textAlign: TextAlign.center, //macht nichts
+          ),
+          
+       backgroundColor: Colors.orange,
+       leading: Builder(
+        builder: (BuildContext context) {
+        return IconButton(
+         icon: const Icon(Icons.arrow_back),
+       onPressed: (
+        
+       ) {
+        runApp(NudelApp());
+       //MaterialPageRoute(builder: (context) => const NudelApp());
+       }
+     );
+   },
+ ),
+   ),
       body: Padding(
         padding: const EdgeInsets.all(25),
          
@@ -54,7 +71,7 @@ String l = 'https://upload.wikimedia.org/wikipedia/commons/6/63/Nudeln_trocken_m
                   width: 300,
                   height: 200,
                   alignment: Alignment.center,
-                  color: Colors.amber,
+                  color: Colors.white,
                   child: Image.network(
                     'https://upload.wikimedia.org/wikipedia/commons/6/63/Nudeln_trocken_makro.jpg',
                     fit: BoxFit.cover,

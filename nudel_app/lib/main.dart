@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nudel_app/page/Nudelinformationen.dart';
@@ -12,6 +12,8 @@ import 'package:nudel_app/widgets.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+
 int x = 0;
   int y = 1;
 
@@ -79,9 +81,8 @@ Future<void> main() async {
     else{
       x --; //Der Index muss bei 0 beginnen
       stop = true;
-    } 
-
-  }
+  } 
+}
   print('gesamte Anzahl');
   print(x);
   WichtigeVariablen().setAmountofNoodles(x);
